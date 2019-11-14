@@ -1,0 +1,32 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('Build') {
+        steps{
+            dir("C:\\Training\\Maven\\helloWorld"){
+                // To run Maven on a Windows agent, use
+                bat "mvn clean"
+            }
+        }
+      }
+      
+      stage('Test') {
+        steps{
+            dir("C:\\Training\\Maven\\helloWorld"){
+                // To run Maven on a Windows agent, use
+                bat "mvn test"
+            }
+        }
+      }
+      
+      stage('Deploy') {
+        steps{
+            dir("C:\\Training\\Maven\\helloWorld"){
+                // To run Maven on a Windows agent, use
+                bat "mvn package"
+            }
+        }
+      }
+   }
+}
